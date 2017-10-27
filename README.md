@@ -1,7 +1,7 @@
 Ansible playbook AWX
 ====================
 
-Basically I took a bunch of roles written by the awesome geerlingguy:
+Basically I took a bunch of roles written by the awesome [geerlingguy](https://github.com/geerlingguy):
 - geerlingguy.repo-epel
 - geerlingguy.git
 - geerlingguy.ansible
@@ -50,7 +50,7 @@ Use the ./playbooks/awx.yml playbook / fit it to your usecase:
 
 ```
 ---
-- hosts: all
+- hosts: <change me>
   become: yes
 
   vars:
@@ -79,3 +79,15 @@ Use the ./playbooks/awx.yml playbook / fit it to your usecase:
     - shell: tower-cli user list
 
 ```
+
+
+License
+-------
+
+[Apache 2](https://choosealicense.com/licenses/apache-2.0/)
+
+
+Author Information
+------------------
+
+[Haggai Philip Zagury](http://www.tikalk.com/devops/haggai)
