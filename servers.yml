@@ -1,0 +1,22 @@
+---
+- name: awx-centos
+  box: centos/7
+  box_version: 1708.01
+  ram: 2048
+  ip: 172.16.1.100
+  ssh_host_port: 2100
+  provider: virtualbox
+  protected: false
+  playbook: awx.yml
+  ansible_provision: true
+
+- name: awx-ubuntu
+  box: bento/ubuntu-16.04
+  box_version: '2.2.7'
+  ram: 2048
+  ip: 172.16.1.200
+  ssh_host_port: 2200
+  provider: virtualbox
+  protected: false
+  playbook: awx.yml
+  ansible_provision: false

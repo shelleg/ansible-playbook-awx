@@ -1,0 +1,27 @@
+---
+- hosts: all
+  become: yes
+
+  vars:
+    nodejs_version: "6.x"
+    pip_install_packages:
+      - name: docker-py
+
+  roles:
+    - geerlingguy.repo-epel
+    - geerlingguy.git
+    - geerlingguy.ansible
+    - geerlingguy.docker
+    - geerlingguy.pip
+    - geerlingguy.nodejs
+    - geerlingguy.awx
+
+  tasks:
+    - pip:
+        name: ansible-tower-cli
+        state: latest
+    - shell: tower-cli config host http://localhost:80
+    - shell: tower-cli config username admin
+    - shell: tower-cli config password password
+    - shell: tower-cli config verify_ssl false
+    - shell: tower-cli user list
