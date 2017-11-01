@@ -1,29 +1,32 @@
-Ansible playbook AWX
-====================
+# Ansible playbook AWX
+
+![](https://i.imgur.com/4bNPi6k.png)
 
 Basically I took a bunch of roles written by the awesome [geerlingguy](https://github.com/geerlingguy):
-- geerlingguy.repo-epel
-- geerlingguy.git
-- geerlingguy.ansible
-- geerlingguy.docker
-- geerlingguy.pip
-- geerlingguy.nodejs
-- geerlingguy.awx
+
+* geerlingguy.repo-epel
+* geerlingguy.git
+* geerlingguy.ansible
+* geerlingguy.docker
+* geerlingguy.pip
+* geerlingguy.nodejs
+* geerlingguy.awx
 
 These are all specified in the `requirements.yml` file here in.
 
-Using Vagrant
-=============
-Please consult the `servers.yml` file for the provisioning options (`centos7`/`ubuntu-16.04`).
+# Using Vagrant
 
-1. Bring up a centos7 machine -> `vagrant up awx-centos`
+Please consult the `servers.yml` file for the provisioning options \(`centos7`/`ubuntu-16.04`\).
 
-   provisioning should take __~20 minuets__ or so - Grab yourself a cup of joe.
-2. Once complete UI login via -> http://172.16.1.100 (or what your custom ip may be)
-__username:__ admin
-__password:__ password
+1. Bring up a centos7 machine -&gt; `vagrant up awx-centos`
 
-3. Cli login -> `vagrant ssh awx-centos` and then `sudo tower-cli config` This should yield:
+   provisioning should take **~20 minuets** or so - Grab yourself a cup of joe.
+
+2. Once complete UI login via -&gt; [http://172.16.1.100](http://172.16.1.100) \(or what your custom ip may be\)  
+   **username:** admin  
+   **password:** password
+
+3. CLI login -&gt; `vagrant ssh awx-centos` and then `sudo tower-cli config` This should yield:
 
 ```YAML
 # User options (set with `tower-cli config`; stored in ~/.tower_cli.cfg).
@@ -43,8 +46,7 @@ use_token: False
 
 Congrats, You are now ready to use both the UI and CLI of AWX !
 
-Using any machine ...
-=====================
+# Using any machine ...
 
 Use the ./playbooks/awx.yml playbook / fit it to your usecase:
 
@@ -77,17 +79,13 @@ Use the ./playbooks/awx.yml playbook / fit it to your usecase:
     - shell: tower-cli config password password
     - shell: tower-cli config verify_ssl false
     - shell: tower-cli user list
-
 ```
 
-
-License
--------
+## License
 
 [Apache 2](https://choosealicense.com/licenses/apache-2.0/)
 
-
-Author Information
-------------------
+## Author Information
 
 [Haggai Philip Zagury](http://www.tikalk.com/devops/haggai)
+
