@@ -1,5 +1,5 @@
----
-- hosts: all
+- hosts: "awx"
+  remote_user: "{{ ssh_user }}"
   become: yes
 
   vars:
@@ -20,7 +20,7 @@
     - pip:
         name: ansible-tower-cli
         state: latest
-    - shell: tower-cli config host http://localhost:80
+    - shell: tower-cli config host http://10.50.4.168:80
     - shell: tower-cli config username admin
     - shell: tower-cli config password password
     - shell: tower-cli config verify_ssl false

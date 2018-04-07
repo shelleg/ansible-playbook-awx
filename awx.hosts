@@ -1,0 +1,4 @@
+[all:vars]
+ssh_user=sisense
+[awx]
+server ansible_host=10.50.4.168
